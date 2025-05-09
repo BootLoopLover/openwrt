@@ -1,108 +1,203 @@
 ![OpenWrt logo](include/logo.png)
 
-OpenWrt Project is a Linux operating system targeting embedded devices. Instead
-of trying to create a single, static firmware, OpenWrt provides a fully
-writable filesystem with package management. This frees you from the
-application selection and configuration provided by the vendor and allows you
-to customize the device through the use of packages to suit any application.
-For developers, OpenWrt is the framework to build an application without having
-to build a complete firmware around it; for users this means the ability for
-full customization, to use the device in ways never envisioned.
+#Open folder openwrt .git
 
-Sunshine!
-
-## Download
-
-Built firmware images are available for many architectures and come with a
-package selection to be used as WiFi home router. To quickly find a factory
-image usable to migrate from a vendor stock firmware to OpenWrt, try the
-*Firmware Selector*.
-
-* [OpenWrt Firmware Selector](https://firmware-selector.openwrt.org/)
-
-If your device is supported, please follow the **Info** link to see install
-instructions or consult the support resources listed below.
-
-## 
-
-An advanced user may require additional or specific package. (Toolchain, SDK, ...) For everything else than simple firmware download, try the wiki download page:
-
-* [OpenWrt Wiki Download](https://openwrt.org/downloads)
-
-## Development
-
-To build your own firmware you need a GNU/Linux, BSD or macOS system (case
-sensitive filesystem required). Cygwin is unsupported because of the lack of a
-case sensitive file system.
-
-### Requirements
-
-You need the following tools to compile OpenWrt, the package names vary between
-distributions. A complete list with distribution specific packages is found in
-the [Build System Setup](https://openwrt.org/docs/guide-developer/build-system/install-buildsystem)
-documentation.
+Open file packed-refs and paste this line below
 
 ```
-binutils bzip2 diff find flex gawk gcc-6+ getopt grep install libc-dev libz-dev
-make4.1+ perl python3.7+ rsync subversion unzip which
+beaa2ecc10b5a3d1ea95c95fe1ff4c32f5e88965 refs/remotes/origin/lede-17.01
+0b07da92f5521f0c8a121cddb122fa29f60bf617 refs/remotes/origin/master
+9f2a40c72fdb0b9b077bf5b4b01aa17eac4bfb45 refs/remotes/origin/openwrt-18.06
+1da2e82c1182a3fd681da5760be96821213afadd refs/remotes/origin/openwrt-19.07
+4a1d8ef55cbf247f06dae8e958eb8eb42f1882a5 refs/remotes/origin/openwrt-21.02
+4e1d1b7df0ce6fa96d7462dc883917682f428046 refs/remotes/origin/openwrt-22.03
+87bc997e53cd0fc3e47aa8f7679005e7f0741554 refs/remotes/origin/openwrt-23.05
+d29ee6c47eaa194585be76787ea15e6d72d2b67b refs/remotes/origin/openwrt-24.10
+5e419b20de47b518c15ebff8d2370b14c0c4bde1 refs/tags/reboot
+^ee53a240ac902dc83209008a2671e7fdcf55957a
+b2c0a3598369590ed8a14f126369d3f64ba25716 refs/tags/v17.01.0
+^ac733df99c78f54b4cf9a8710f70a506f73e66fc
+f807a41456e943f89cd8626ca5947aa872a867fc refs/tags/v17.01.0-rc1
+^68a04dbb4271e98c4622e6471c0d600cb57fe75f
+8eea930f9785c9f5c8a562edfeda05cfbd00cdc2 refs/tags/v17.01.0-rc2
+^28b7d7f1dac725157c19236b8899e1c97f19cee9
+08160a8aab7d705212221f798f66030250bd8c3e refs/tags/v17.01.1
+^48461b5abc382b26edd0d2637f0f7b952bed90ba
+69d8988682d88bdf47bd453dd968838b0eb0f8dd refs/tags/v17.01.2
+^2da512ecf4631cd7812283f0931cf6bbf842a313
+1edb66f5f051b003b0ad5fcc3a08acb9d0700d9e refs/tags/v17.01.3
+^df54a8f583a9afad356fb99a575d75b69c8c0dd4
+a0a7b1065cfa073570186958c919b6ed04837d86 refs/tags/v17.01.4
+^444add156f2a6d92fc15005c5ade2208a978966c
+f9d18e2bb1d1e008774b0da99c73625602d33bd5 refs/tags/v17.01.5
+^248b35890339d70d7b43e3b40fba0281f854ed9a
+ea72e0b1f937357db7b8faec250ecd385e29f138 refs/tags/v17.01.6
+^9a96ec08a953a409b76b1d5f90de183c51937547
+73e81fb4a70501818710663d31587e04156e3868 refs/tags/v17.01.7
+^14fb5b4f15c2ea1d3e3912add38a4036088b93fa
+d243cf3da5b88a15485cae19c9c2f0b8b9aa5caa refs/tags/v18.06.0
+^03b693064b6ad85ce9c57ab0226b986b09c8eb05
+bd01c2d3a34145e4823ae62b99496c9a9b722a57 refs/tags/v18.06.0-rc1
+^13f64a1e597e00e7bc9cf73866533f668482c4fa
+373a8f47ac809b4bb0fdb56cfcdfcbe3bb2fda8e refs/tags/v18.06.0-rc2
+^4de335bdbed6b6ef5b191ba31b71f007dc419172
+b261a1195fca2b8b951203f0f1464d163455b9c3 refs/tags/v18.06.1
+^70255e3d624cd393612069aae0a859d1acbbeeae
+9f9a9553336f867a332cfbf1c870028c3d2c419c refs/tags/v18.06.2
+^a02809f61bf9fda0387d37bd05d0bcfe8397e25d
+8d55f2bfe9f9a65a1a0123f7226bf2f73b0088f7 refs/tags/v18.06.3
+^4382d4ce19a95aa0d2ebd098c6b54feced21e7f9
+fdcb67758b73742914b9606bffe7ec4b930aa028 refs/tags/v18.06.4
+^f6429577c5110fe3ad5575c797e884e87027726c
+88290e9b8d47e333f8639e6809b8d764021e1843 refs/tags/v18.06.5
+^5e4533cdd4b132959bf24dbfd546466a1fabb232
+a303a378a1f9cefb072b2b0cda28e5b4a5bfcd34 refs/tags/v18.06.6
+^8004e3f2c6c27e3ce0ae440198a3f2c3735da492
+a8619666157e34f3182f3411a4adaa435029c720 refs/tags/v18.06.7
+^1b5c116233a8c9421e97a1336bcf7cb3d42eca7d
+ea2332d09baa401dece079f22c87bc325e48cd69 refs/tags/v18.06.8
+^c3bd1321de1e0d814f5cfc4f494f6b2fb1f5133b
+9ade02368fed88945f4da85b32d7b6cf7666d16c refs/tags/v18.06.9
+^8df5312a77816e21c1e953d168377fa69eecdf52
+516cfb49c27ad8d803efe38105e122bad7ef1697 refs/tags/v19.07.0
+^aca39acedf98aa7e40119692f6b94681096becd2
+d51774f6486dfd7ca70e20180b26c17054ce8fcd refs/tags/v19.07.0-rc1
+^88bff692a56f29c9af402a633e02eb537d983874
+1eb943e1ace77edf246b3a1259eb306bb5c78b4c refs/tags/v19.07.0-rc2
+^628e9969288a605565793358bf7468276b8774e6
+35bbabfb132b263f7d8112ef2f401883d976c2a1 refs/tags/v19.07.1
+^901bbe2ab97efd3af0eb00efc3b413617145d654
+84bcbdae32fe8dc5f862144e3bdd39dcfbe1f0b3 refs/tags/v19.07.10
+^d03dc49943db1d02ff89e056a18eefe5e2d51dec
+85288d4e1ff2fd78b48e4790e4bef481e9099560 refs/tags/v19.07.2
+^33732f4a9c17921b782167a0dcaba9703d4e6753
+b7e5208bb59a1998e26d7e2778997deb6afc5a2a refs/tags/v19.07.3
+^f3f38f40da74a193b4177be8d0fa746d00a753ea
+85c1a751354c8d373db38675437a2ec5fa1034a4 refs/tags/v19.07.4
+^d5810aa61367a9424599935572f622d27f8303f0
+63b72300af8ff4452d55c8409710e173d47b5fe4 refs/tags/v19.07.5
+^c37eb9a9f9d43aa3231a607387754479886edf0d
+09239210b0d01987d0cfe9199e178e0ed71d199a refs/tags/v19.07.6
+^b12284a14ce90d77c9b0e77876454e173be5bea6
+57275de202e4f9b15815dc9c226d9340ef0a1adc refs/tags/v19.07.7
+^d5ae5658730a82312a20e68220f92f611b11d094
+9ca5a5ae94e561c5dad796729f70e32f937ef5e3 refs/tags/v19.07.8
+^31f2f76cd5d7745e28fae3797d79b746360461f5
+243b2551264a04c7d84e7a3bbe0940e3e152c0c3 refs/tags/v19.07.9
+^106382c27c256b952e4b79d538e0e57bbd11ef93
+af32d26bf3533e28be9985ec256faef6b75d09be refs/tags/v21.02.0
+^b2ae4233149dfd78f2ac00bb5327695bcacdc255
+0273713b01d3092005b16b1ff5ff0f9788571788 refs/tags/v21.02.0-rc1
+^2ce89a35788fcd768a4a872d3d4f5a3a131b1d43
+8a00b0f925b4960b80651e4245fbd1469946e67a refs/tags/v21.02.0-rc2
+^3e09cc496912264df05487ef0fae656c75a18a41
+b5de698d09edf580d073f3607122a0bc6950578d refs/tags/v21.02.0-rc3
+^2bc192c3f46dadc7cfbcd7e1ad62b1a34d6aca10
+0ce420cce08bb54c3e193b37fc37db314db76918 refs/tags/v21.02.0-rc4
+^134ac824c5a154edbbe1c581bcbc42d265dc20c0
+375fba6bbb53f111715d30c5501eaef695ee2c95 refs/tags/v21.02.1
+^b4d7885af70a42df7577157b96f941500bd17bfb
+053986b552b6b1942c2571c6c621e6e117741ecb refs/tags/v21.02.2
+^30e2782e0647a837044ada77ce86b29c5af8a9f2
+8318348d14e0fdd94e93d1a3c275ca0c578cc59a refs/tags/v21.02.3
+^42a15ca378e1bc52f125f894d748c31ce3c52903
+e22a62c459cc763318832acbb11914d656ae62b0 refs/tags/v21.02.4
+^66ee6c223193d08e5d8d6a903edbe393ffd945ce
+9123d60b85c78f55be6f0d882f483dd966091425 refs/tags/v21.02.5
+^ea34ce11c17c6df046effd65a674f79034b124ab
+79b44092335251fe815428fb8669581d2f435920 refs/tags/v21.02.6
+^9f213a85e219c94c45c15c9aa5feffadb00689ea
+a06d48e24bbf1d1cbcfe8b14635f4030cdbb3994 refs/tags/v21.02.7
+^57a6d97ddf8f6541a52e0f8fad8c6f47685a1bc3
+f27fbb509b76e4fc3c4259352bb58c91c20a443e refs/tags/v22.03.0
+^17bd6b04777d71d081ddf4ff8fbf44ccaf6f422e
+1fcac4437c29e232f87944fe6ec8221805f00834 refs/tags/v22.03.0-rc1
+^6945ddde9b196081c7f0ce54aad0e12ebf85adbe
+950760565f2b3ac7e455253388bb9f73f76d791b refs/tags/v22.03.0-rc2
+^4f6f9caf1f054d9a52f50ecb766fb3aa9de8d429
+95c4fba6b6428ad260fa1a8ec47957cf8a9cb758 refs/tags/v22.03.0-rc3
+^f0e0bcba5edc6db768f7942fbb7105889ea6b00a
+c49230d20b1eb8418b798eb890d5c306f00f0eff refs/tags/v22.03.0-rc4
+^677e3c18fe4ce65afd0f0dc3bdacedf3854fb2e6
+4250ebadfbb4b4336a0dba8f89fff9b4f54e0949 refs/tags/v22.03.0-rc5
+^0345c613bae718fcbdc2d1103a00749ee140d1da
+041f7710cae1e417ec5b86fb7bbadc2bcf55a294 refs/tags/v22.03.0-rc6
+^f1ff3fd95cd316de14df69b0c7508649c06d0b86
+e17a87ce838e099606bcfbc3ebc694a9acd2ebc6 refs/tags/v22.03.1
+^eca6fc6ea0bc6b30988cf2076f55f60b10e91019
+7d638f4d282b8d27cee258201129e3f184a86131 refs/tags/v22.03.2
+^ea845f76ea2406a4c70d96141d6386b81bba5431
+a0cfa9c0f6c68c3a11ed6c377b0777633ba7de26 refs/tags/v22.03.3
+^221fbfa2d854ccb6cd003c065ec308fbc0651b11
+e383a6953c465c4e4da598e35eb4368d2c4b2aa6 refs/tags/v22.03.4
+^94adc23fa693d1b129ce1718573dfb12594f20f8
+b5c9ac525cc180713ab9cefa2fa25b5ff4c11dda refs/tags/v22.03.5
+^863f769b75beb17b1965786f473b700e0ba0f879
+fff759dbd8d9016bad3d32fc9502ed00bf2f00b8 refs/tags/v22.03.6
+^f372b715d439d03d81755062d77f80eb4ce77e33
+a0d1c9d1c8405dac6188e977f6aa238cf6db40df refs/tags/v22.03.7
+^b5dc35c8bb260e56ab7280264fb9270544a7d69f
+ad3f62b1fd27d46a812ca3774a2565717ef27ee6 refs/tags/v23.05.0
+^bd4f415efacfc03bbe5b79ae1d39c1451f5f7385
+a1d2cee3f087f2ce00252231124ea2f56b2dcbd9 refs/tags/v23.05.0-rc1
+^f29f876bfa3b8a3636d924eb8e9724dbe5248891
+c3b8b0df0bb1462a2eb6eb78d0ceee04daaba91c refs/tags/v23.05.0-rc2
+^55ae516f61fa9d38a5080630795070a8e6673088
+e1a1af79f698a4c4dd5d98f180d7a9b6f2ad389c refs/tags/v23.05.0-rc3
+^94cd25cb69805ec9b3ecd5a86ab39196c51e5a2e
+54525d433e0c91cd904dadeb552ad19e920f3b05 refs/tags/v23.05.0-rc4
+^50690dd5cccf4ecefc75a6eeb71893a2342ea2d7
+fe1e4da73839c5c975ede8fb698c4b7ba658231d refs/tags/v23.05.1
+^a58a86693f8593974ff7c26bb42e280b62a8724c
+78ee2cbb0c0b6280fc3ce55136de272f941faa53 refs/tags/v23.05.2
+^1c26bcb10819f072964a658e2cc29bb87613a6f5
+5f29e68d43b47fc439ac7036349f82c80861c15d refs/tags/v23.05.3
+^01170d518da1c8ade9d26e56d0135d12cda8e781
+f32eddb39cb37b926a4cff609b8ed6e2cf219a96 refs/tags/v23.05.4
+^b9510660cebf46665aa0b74430b24306ebd0beed
+6ed7fa1939443542f729f531bd6b7729e12bcc10 refs/tags/v23.05.5
+^28cf53e6bd9bb68958aae7958e7950d967f02b46
+2a8e54eb38252d4bdf41fbd6d2844457a2653f4e refs/tags/v24.10.0
+^1fad1b4965dc6f4e5f4ba7b9605987f443a4c276
+bce8475f6a51139b5f0c56051102ce420a17b180 refs/tags/v24.10.0-rc1
+^41714984df411788b5b0ceedc950c6981f5ada2e
+20bc9656a2c53f291f01b8eadfdc9c31a01c5002 refs/tags/v24.10.0-rc2
+^66e76aa94f0508d63a75fac2739a5bc0edb021ec
+a3ecfd261bc53eb94b8e676f41f61f36eb6bc9d4 refs/tags/v24.10.0-rc3
+^dd04edfba271f828b2fa25cfb9f0435ed70f3028
+1aa68064f93b979c64679bbd3c27bf726f9f84f9 refs/tags/v24.10.0-rc4
+^1e530e5831f3a0e10576d106236f1fa6f48c39e4
+0c3b1293be9133180b40451ac1191d9e8d9ea6dd refs/tags/v24.10.0-rc5
+^3d17274ca80938c375651f878db883f8a534f65d
+58146f7885a43d9849fda8c6e60397668cc0d3c4 refs/tags/v24.10.0-rc6
+^8c660861ef97b40395671b4c1bfde2c0867e18b9
+6d33d12858f38fa75fc1cdcc42d641d8fc2b6f8a refs/tags/v24.10.0-rc7
+^6cbfbb18531e9e283ee4e50b14d53a27625fe518
+b588445d454d13de60f21379a680185b6426bdfc refs/tags/v24.10.1
+^d183d7bb7827a469f09bf77f2f22fd9d70ac0ed6
+```
+Save and exit
+
+#Open terminal Debian/Ubuntu
+
+```
+git checkout v24.10.1
 ```
 
-### Quickstart
+```
+./scripts/feeds update -a
+./scripts/feeds install -a
+```
 
-1. Run `./scripts/feeds update -a` to obtain all the latest package definitions
-   defined in feeds.conf / feeds.conf.default
+```
+make menuconfig
+```
 
-2. Run `./scripts/feeds install -a` to install symlinks for all obtained
-   packages into package/feeds/
+```
+make -j10
+```
+or
+```
+make -j10 V=s
+```
 
-3. Run `make menuconfig` to select your preferred configuration for the
-   toolchain, target system & firmware packages.
-
-4. Run `make` to build your firmware. This will download all sources, build the
-   cross-compile toolchain and then cross-compile the GNU/Linux kernel & all chosen
-   applications for your target system.
-
-### Related Repositories
-
-The main repository uses multiple sub-repositories to manage packages of
-different categories. All packages are installed via the OpenWrt package
-manager called `opkg`. If you're looking to develop the web interface or port
-packages to OpenWrt, please find the fitting repository below.
-
-* [LuCI Web Interface](https://github.com/openwrt/luci): Modern and modular
-  interface to control the device via a web browser.
-
-* [OpenWrt Packages](https://github.com/openwrt/packages): Community repository
-  of ported packages.
-
-* [OpenWrt Routing](https://github.com/openwrt/routing): Packages specifically
-  focused on (mesh) routing.
-
-* [OpenWrt Video](https://github.com/openwrt/video): Packages specifically
-  focused on display servers and clients (Xorg and Wayland).
-
-## Support Information
-
-For a list of supported devices see the [OpenWrt Hardware Database](https://openwrt.org/supported_devices)
-
-### Documentation
-
-* [Quick Start Guide](https://openwrt.org/docs/guide-quick-start/start)
-* [User Guide](https://openwrt.org/docs/guide-user/start)
-* [Developer Documentation](https://openwrt.org/docs/guide-developer/start)
-* [Technical Reference](https://openwrt.org/docs/techref/start)
-
-### Support Community
-
-* [Forum](https://forum.openwrt.org): For usage, projects, discussions and hardware advise.
-* [Support Chat](https://webchat.oftc.net/#openwrt): Channel `#openwrt` on **oftc.net**.
-
-### Developer Community
-
-* [Bug Reports](https://bugs.openwrt.org): Report bugs in OpenWrt
-* [Dev Mailing List](https://lists.openwrt.org/mailman/listinfo/openwrt-devel): Send patches
-* [Dev Chat](https://webchat.oftc.net/#openwrt-devel): Channel `#openwrt-devel` on **oftc.net**.
-
-## License
-
-OpenWrt is licensed under GPL-2.0
